@@ -1,3 +1,5 @@
+<!-- This is the login or register page, meant to be the first page in the flow. -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,6 +21,7 @@
 			<label for="password">Top-Secret Unsharable KeyPhrase here:</label>
 			<input type="text" class="form-control" name="password" id="password" placeholder="password">
 		</div>
+		<!-- <button type = "submit" class="btn btn-default">I forgot the code words!</button> -->
 		<button type = "submit" class="btn btn-default">To my accounts!</button>
 	</form>
 

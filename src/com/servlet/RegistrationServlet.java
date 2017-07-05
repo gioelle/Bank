@@ -1,5 +1,7 @@
 package com.servlet;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -15,6 +17,10 @@ import com.user.Customer;
 
 /**
  * Servlet implementation class RegistrationServlet
+ * This servlet collects data used on the login/register page 
+ * and should check the username against existing usernames
+ * then write the new user to a file 
+ * then redirect the user to the account home page.
  */
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
@@ -48,7 +54,14 @@ public class RegistrationServlet extends HttpServlet {
 		a.setState(request.getParameter("state"));
 		a.setZipcode(request.getParameter("zipCode"));
 		c.setAddress(a);
+		
+		//call save function here and write into file.
+		save("C:\\Users\\Joelle.Fronzaglio\\Documents\\GhostWriter\\BankFiles.txt", c.toString());
 	
+		//call save function here and write U&P into separate file.
+		save("C:\\Users\\Joelle.Fronzaglio\\Documents\\GhostWriter\\UserNameAndPassword.txt", c.getUsername() + "," + c.getPassword());
+
+		//need to check whether username already exists. Add this later.
 		
 		HttpSession session = request.getSession(true);
 		session.setAttribute("customer", c);
@@ -63,6 +76,13 @@ public class RegistrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	public static void save(String pathAndFileName, String data) {
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(pathAndFileName))){
+			bw.write(data);
+			System.out.println("All Good here.");
+		}catch(IOException e) {	}	
 	}
 
 }

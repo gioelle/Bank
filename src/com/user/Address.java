@@ -1,5 +1,7 @@
 package com.user;
 
+//This class creates the address object to be called by the Customer object
+
 public class Address {
 	
 	private String streetAddress;

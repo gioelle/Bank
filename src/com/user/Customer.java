@@ -2,6 +2,8 @@ package com.user;
 
 // import java.util.ArrayList;
 
+//this class creates a customer object with properties of name, email, U & P, and address.
+
 public class Customer {
 //	private ArrayList<Account> accountList;
 	private String firstName;
@@ -18,9 +20,16 @@ public class Customer {
 //	public void setAccountList(ArrayList<Account> accountList) {
 //		this.accountList = accountList;
 //	}
-
+	
 	public String getFirstName() {
 		return firstName;
+	}
+
+	@Override
+	public String toString() {
+		return  firstName + "," + lastName + "," + email + ","
+				+ username + "," + password + "," + address.getStreetAddress() + ","
+				+ address.getCity() + "," + address.getState() + "," + address.getZipcode();
 	}
 
 	public void setFirstName(String firstName) {
