@@ -1,3 +1,5 @@
+<!--  need a way to read from the file here to populate the account page based on the login used. -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@ page import="com.user.Customer" %>
@@ -7,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Account Home</title>
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -31,7 +33,7 @@
 		<p>This is your account summary. If you don't like what you see, contact us for some budgeting and investment advice.</p>
 		</div>
 	</div>
-	<div id=divLeft class="container">
+	<div style="float-left" class="container">
 	<!-- account menu actions here, each with a method... -->
 	<div class="row">
 	<div class="col-md-4">
@@ -61,14 +63,45 @@
 	</div>
 	</div>
 	</div>
-	<!-- 
-	<div id=divRight class="container">
-	<div class="row">
-	<div class="col-md-4">
-	<h2>Your Current Account Summary:</h2>
-	<p></p> -->
-	<!-- need to display each part of the customer's array list here with titles "Savings" and "Checking" -->
 	
-		
+	<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    style: float-right;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<table style="float-right">
+  <tr>
+    <th>Account Number</th>
+    <th>Balance</th>
+    <th>Account Type</th>
+  </tr>
+  <tr>
+    <td> testdata<!-- getCustomer.AccountNumber[0] --></td>
+    <td>testdata1<!-- getCustomer.AccountNumber.balance --></td>
+    <td>testdata2<!-- getCustomer.AccountNumber.type --></td>
+  </tr>
+  <!-- If account.next == exists, continue populating the table -->
+  
+</table>
+	
 </body>
 </html>

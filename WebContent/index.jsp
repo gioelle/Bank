@@ -19,7 +19,7 @@
 		</div>
 		<div class="form-group">
 			<label for="password">Top-Secret Unsharable KeyPhrase here:</label>
-			<input type="text" class="form-control" name="password" id="password" placeholder="password">
+			<input type="password" class="form-control" name="password" id="password" placeholder="password">
 		</div>
 		<!-- <button type = "submit" class="btn btn-default">I forgot the code words!</button> -->
 		<button type = "submit" class="btn btn-default">To my accounts!</button>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="form-group">
 			<label for="password">Password</label>
-			<input type="text" class="form-control" name="password" id="password" placeholder="s0m3t#ingComp!ex&un1que">
+			<input type="password" class="form-control" name="password" id="password" placeholder="s0m3t#ingComp!ex&un1que">
 		</div>
 		<div class="form-group">
 			<label for="streetAddress">Street Address</label>

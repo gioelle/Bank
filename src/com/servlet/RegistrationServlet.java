@@ -59,8 +59,8 @@ public class RegistrationServlet extends HttpServlet {
 		save("C:\\Users\\Joelle.Fronzaglio\\Documents\\GhostWriter\\BankFiles.txt", c.toString());
 	
 		//call save function here and write U&P into separate file.
-		save("C:\\Users\\Joelle.Fronzaglio\\Documents\\GhostWriter\\UserNameAndPassword.txt", c.getUsername() + "," + c.getPassword());
-
+		save("C:\\Users\\Joelle.Fronzaglio\\Documents\\GhostWriter\\UserNameAndPassword.txt", c.getUsername() + "," + c.getPassword() + " ");
+		
 		//need to check whether username already exists. Add this later.
 		
 		HttpSession session = request.getSession(true);
@@ -79,8 +79,8 @@ public class RegistrationServlet extends HttpServlet {
 	}
 	
 	public static void save(String pathAndFileName, String data) {
-		try(BufferedWriter bw = new BufferedWriter(new FileWriter(pathAndFileName))){
-			bw.write(data);
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(pathAndFileName, true))){
+			bw.append(data);
 			System.out.println("All Good here.");
 		}catch(IOException e) {	}	
 	}
