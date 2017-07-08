@@ -49,6 +49,7 @@ public class RegistrationServlet extends HttpServlet {
 		c.setEmail(request.getParameter("email"));
 		c.setUsername(request.getParameter("username"));
 		c.setPassword(request.getParameter("password"));
+		c.setLast4(request.getParameter("last"));
 		a.setStreetAddress(request.getParameter("streetAddress"));
 		a.setCity(request.getParameter("city"));
 		a.setState(request.getParameter("state"));

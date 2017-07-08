@@ -15,8 +15,25 @@ public class Customer {
 	private String email;
 	private String username;
 	private String password;
+	private String last4;
 	private Address address;
 	
+	
+	@Override
+	public String toString() {
+		return  firstName + "," + lastName + "," + email + ","
+				+ username + "," + password + "," + last4 + "," + address.getStreetAddress() + ","
+				+ address.getCity() + "," + address.getState() + "," + address.getZipcode();
+	}
+	
+	public String getLast4() {
+		return last4;
+	}
+
+	public void setLast4(String last4) {
+		this.last4 = last4;
+	}
+
 	public ArrayList<Account> getAccountList() {
 		return accountList;
 	}
@@ -29,12 +46,7 @@ public class Customer {
 		return firstName;
 	}
 
-	@Override
-	public String toString() {
-		return  firstName + "," + lastName + "," + email + ","
-				+ username + "," + password + "," + address.getStreetAddress() + ","
-				+ address.getCity() + "," + address.getState() + "," + address.getZipcode() + "\n";
-	}
+
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;

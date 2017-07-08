@@ -1,6 +1,7 @@
 package com.account;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Account {
 	private double balance;
@@ -8,6 +9,7 @@ public class Account {
 	private double interestRate;
 	private boolean hasDebitCard;
 	private boolean hasChecks;
+	private String type;
 	private ArrayList<Transaction> transactions = new ArrayList<Transaction>();
 	
 	
@@ -21,6 +23,34 @@ public class Account {
 //	PrintStatement(): void
 //	request Checkbook()
 //	request debitcard()
+	
+	@Override
+	public String toString() {
+		return  "~" + type + "," + balance + "," + accountNumber + "," + interestRate + ","
+				+ hasDebitCard + "," + hasChecks;
+	}
+	//method to alter amount using a transaction
+	public void processTransaction(double amount, String transactor) {
+		Transaction transaction = new Transaction(amount, transactor);
+		transactions.add(transaction);
+		this.balance += amount;
+	}
+	
+	public void generateNumber(String last4) {
+		int temp = (int)Math.random()*999 + 100;
+		this.accountNumber = last4 + temp;
+	}
+	
+	public Account(String type) {
+		if (type == "savings") {
+			interestRate = 0.08;
+		} else {
+			interestRate = 0.00;
+		}
+		this.type = type;
+		//need to add account number here. thinking of using the customer's last four & "C" or "S" to the end
+	}
+	
 	
 	public double getBalance() {
 		return balance;
@@ -40,13 +70,13 @@ public class Account {
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
-	public boolean isHasDebitCard() {
+	public boolean hasDebitCard() {
 		return hasDebitCard;
 	}
 	public void setHasDebitCard(boolean hasDebitCard) {
 		this.hasDebitCard = hasDebitCard;
 	}
-	public boolean isHasChecks() {
+	public boolean hasChecks() {
 		return hasChecks;
 	}
 	public void setHasChecks(boolean hasChecks) {

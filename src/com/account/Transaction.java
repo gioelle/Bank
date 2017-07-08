@@ -1,5 +1,6 @@
 package com.account;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Transaction {
@@ -7,10 +8,16 @@ public class Transaction {
 	private double amount;
 	private String transactor;
 	
-	
+	public Transaction(double amount, String transactor) {
+		this.date = Calendar.getInstance().getTime();
+	}
+	//	when a new transaction object is created, add it to transaction array in customer object,
+	// call a method to change the account balance
 //	+AvailableBalance(AccountNumber):double remainingBalance
 //	+ProcessTransaction():void
-	
+	public String toString() {
+		return  "*" + date + "," + amount + "," + transactor;
+	}
 	
 	public Date getDate() {
 		return date;

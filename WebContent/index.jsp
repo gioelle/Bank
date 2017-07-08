@@ -49,6 +49,10 @@
 			<input type="password" class="form-control" name="password" id="password" placeholder="s0m3t#ingComp!ex&un1que">
 		</div>
 		<div class="form-group">
+			<label for="last4">Last 4 of SSN</label>
+			<input type="password" class="form-control" name="last" id="last4" placeholder="####">
+		</div>
+		<div class="form-group">
 			<label for="streetAddress">Street Address</label>
 			<input type="text" class="form-control" name="streetAddress" id="streetAddress" placeholder="123 Rebel Avenue">
 		</div>

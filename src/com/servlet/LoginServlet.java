@@ -61,6 +61,7 @@ public class LoginServlet extends HttpServlet {
 			{
 				System.out.println(username + pswd);
 				System.out.println(customers.get(i).getUsername() + customers.get(i).getPassword());
+				
 				session.setAttribute("customer", customers.get(i));
 				RequestDispatcher rs = request.getRequestDispatcher("account.jsp");
 				rs.forward(request,response);
