@@ -53,10 +53,10 @@ public class LoginServlet extends HttpServlet {
 		
 		for(int i =0; i < customers.size(); i++)
 		{
-			System.out.println("inside the for loop");
-			String temp = customers.get(i).getUsername();
-			System.out.println(temp);
-			
+//			System.out.println("inside the for loop");
+//			String temp = customers.get(i).getUsername();
+//			System.out.println(temp);
+//			
 			if(username.trim().equals(customers.get(i).getUsername()) && pswd.trim().equals(customers.get(i).getPassword())) 
 			{
 				System.out.println(username + pswd);

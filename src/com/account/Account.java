@@ -41,17 +41,29 @@ public class Account {
 		this.accountNumber = last4 + temp;
 	}
 	
-	public Account(String type) {
+	public Account() {
+		this.balance = 0;
+	}
+	public void setAccountValues(String type) {
 		if (type == "savings") {
 			interestRate = 0.08;
 		} else {
 			interestRate = 0.00;
 		}
 		this.type = type;
+		
 		//need to add account number here. thinking of using the customer's last four & "C" or "S" to the end
 	}
 	
 	
+	
+	public void setAccountValues(boolean hasDebitCard, boolean hasChecks) {
+		
+		this.hasDebitCard = hasDebitCard;
+		this.hasChecks = hasChecks;
+		this.type = "checkings";
+	
+	}
 	public double getBalance() {
 		return balance;
 	}
