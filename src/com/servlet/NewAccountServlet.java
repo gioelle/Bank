@@ -1,5 +1,7 @@
 package com.servlet;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -57,14 +59,6 @@ public class NewAccountServlet extends HttpServlet {
 			customerAccount.generateNumber(c.getLast4());
 		}
 		
-		
-
-//		if(type.equals("checking")) {
-//			customerAccount.hasDebitCard(request.get("debit"));
-//		} 
-//		//use soemthing to capture whether debit card & checks were selected. This is angry because it's expecting a boolean.
-//		customerAccount.setHasChecks(request.getParameter("checks"));
-//		customerAccount.setHasDebitCard(request.getParameter("debit"));
 		if(c.getAccountList() == null) {
 			c.setAccountList(new ArrayList<Account>());
 			
@@ -73,6 +67,8 @@ public class NewAccountServlet extends HttpServlet {
 		request.getSession().setAttribute("accountList", c.getAccountList());
 		RequestDispatcher rs = request.getRequestDispatcher("account.jsp");
 		rs.forward(request,response);
+		
+		save("C:\\Users\\Joelle.Fronzaglio\\Documents\\GhostWriter\\BankFiles.txt", c.toString() + customerAccount.toString());
 	}
 
 	/**
@@ -83,9 +79,18 @@ public class NewAccountServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	//save("C:\\Users\\Joelle.Fronzaglio\\Documents\\GhostWriter\\BankFiles.txt", c.toString() + customerAccount.toString());
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	public static void save(String pathAndFileName, String data) {
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(pathAndFileName, true))){
+			bw.append(data);
+			System.out.println("All Good here.");
+		}catch(IOException e) {	}	
+	}
 
 }
+
+

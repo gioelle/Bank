@@ -46,10 +46,10 @@ public class LoginServlet extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		String pswd = request.getParameter("password");
-		
+		boolean flag = true;
 			
 		List<Customer> customers = read("C:\\Users\\Joelle.Fronzaglio\\Documents\\GhostWriter\\BankFiles.txt");
-		System.out.println("right below the read function is called."+customers.size());
+		System.out.println("right below the read function is called: "+customers.size());
 		
 		for(int i =0; i < customers.size(); i++)
 		{
@@ -57,21 +57,24 @@ public class LoginServlet extends HttpServlet {
 //			String temp = customers.get(i).getUsername();
 //			System.out.println(temp);
 //			
-			if(username.trim().equals(customers.get(i).getUsername()) && pswd.trim().equals(customers.get(i).getPassword())) 
+			if(username.trim().equals(customers.get(i).getUsername().trim()) && pswd.trim().equals(customers.get(i).getPassword().trim())) 
 			{
 				System.out.println(username + pswd);
 				System.out.println(customers.get(i).getUsername() + customers.get(i).getPassword());
-				
+				flag = false;
 				session.setAttribute("customer", customers.get(i));
 				RequestDispatcher rs = request.getRequestDispatcher("account.jsp");
 				rs.forward(request,response);
+				break;
 			}
-			else 
-			{
+			
+		}
+		if(flag) {
+		
 				session.setAttribute("error", "Incorrect Username or Password");
 				RequestDispatcher rs = request.getRequestDispatcher("index.jsp");
 				rs.forward(request,response);
-			}
+			
 		}
 			
 		//read a text file that contains key value pairs and compare them to user entry.
@@ -99,23 +102,31 @@ public class LoginServlet extends HttpServlet {
 					while(scanner.hasNextLine()) {
 						String line = scanner.nextLine();
 						String[] parseData = line.split(",");
-						System.out.println(parseData[1]);
+						System.out.println("Parse data size: "+parseData.length);
+						if(parseData.length == 10)
+						{
 						String firstName = parseData[0];
 						String lastName = parseData[1];
 						String email = parseData[2];
 						String username = parseData[3];
 						String password = parseData[4];
-						String streetAddress = parseData[5];
-						String city = parseData[6];
-						String state = parseData[7];
-						String zipcode = parseData[8];
+						String last4 = parseData[5];
+						String streetAddress = parseData[6];
+						String city = parseData[7];
+						String state = parseData[8];
+						String zipcode = parseData[9];
 						Address address = new Address(streetAddress, city, state, zipcode);
 						
-						Customer testCustomer = new Customer(firstName, lastName, email, username, password, address);
+						Customer testCustomer = new Customer(firstName, lastName, email, username, password, last4, address);
 						customers.add(testCustomer);
 					    System.out.println(customers.size());
 					
 					}
+						else {
+							System.out.println("Invalid Data in file.");
+						}
+					}
+					
 				}catch(FileNotFoundException ex) {
 					
 				}

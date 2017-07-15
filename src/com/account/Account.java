@@ -45,14 +45,11 @@ public class Account {
 		this.balance = 0;
 	}
 	public void setAccountValues(String type) {
-		if (type == "savings") {
-			interestRate = 0.08;
-		} else {
-			interestRate = 0.00;
-		}
+		
+		interestRate = 0.08;
 		this.type = type;
 		
-		//need to add account number here. thinking of using the customer's last four & "C" or "S" to the end
+		
 	}
 	
 	
@@ -61,7 +58,7 @@ public class Account {
 		
 		this.hasDebitCard = hasDebitCard;
 		this.hasChecks = hasChecks;
-		this.type = "checkings";
+		this.type = "Checking";
 	
 	}
 	public double getBalance() {
@@ -100,8 +97,17 @@ public class Account {
 	public void setTransactions(ArrayList<Transaction> transactions) {
 		this.transactions = transactions;
 	}
-	
-
-	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public boolean isHasDebitCard() {
+		return hasDebitCard;
+	}
+	public boolean isHasChecks() {
+		return hasChecks;
+	}
 	
 }

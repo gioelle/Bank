@@ -10,3 +10,27 @@
 #divRight{
 	float: right;
 }
+img {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+h1 {
+	text-align: "center";
+	font-family:"lobster";
+	font-color: "white";
+	text-decoration:"line-through";
+	url:"fonts.google.com/specimen/Lobster";
+	
+}
+
+h3{
+	font-color:"red";
+	font-family: "lobster";
+}
+
+body {
+	background-image: url('file:///Users/Joelle.Fronzaglio/Downloads/Business.jpg');
+	background-repeat: no-repeat;
+	font-color: "white";
+}

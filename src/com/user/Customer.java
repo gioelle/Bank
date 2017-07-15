@@ -19,9 +19,24 @@ public class Customer {
 	private Address address;
 	
 	
+	//default constructor
+	public Customer() {}
+	//parameterized constructor
+	public Customer(String firstName, String lastName, String email, String username, String password, String last4,
+			Address address) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.last4 = last4;
+		this.address = address;
+	}
+	
 	@Override
 	public String toString() {
-		return  firstName + "," + lastName + "," + email + ","
+		return  "\n" + firstName + "," + lastName + "," + email + ","
 				+ username + "," + password + "," + last4 + "," + address.getStreetAddress() + ","
 				+ address.getCity() + "," + address.getState() + "," + address.getZipcode();
 	}
@@ -92,22 +107,5 @@ public class Customer {
 		this.address = address;
 	}
 
-	//default constructor
-	public Customer() {}
-
-	public Customer(String firstName, String lastName, String email, String username, String password,
-			Address address) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.username = username;
-		this.password = password;
-		this.address = address;
-	}
-	
-	
-	
-	
 
 }
